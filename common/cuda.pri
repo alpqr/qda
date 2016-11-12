@@ -30,9 +30,8 @@ LIBS += -L$$CUDA_LIBDIR -lcudart -lcuda
 osx: LIBS += -F/Library/Frameworks -framework CUDA
 
 cuda.commands = $$CUDA_NVCC -c -arch=$$CUDA_ARCH $$CUDA_FLAGS -o ${QMAKE_FILE_OUT} ${QMAKE_FILE_NAME}
-# the deps result does not seem to be parsed correctly by qmake on Windows, so disable for now.
-# cuda.dependency_type = TYPE_C
-# cuda.depend_command = $$CUDA_NVCC -M {QMAKE_FILE_NAME}
+cuda.dependency_type = TYPE_C
+cuda.depend_command = $$CUDA_NVCC -M {QMAKE_FILE_NAME}
 cuda.input = CUDA_SOURCES
 win32 {
     cuda.output = $$CUDA_OBJDIR/${QMAKE_FILE_BASE}_cuda.obj
