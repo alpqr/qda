@@ -1,0 +1,5 @@
+<RCC>
+    <qresource prefix="/">
+        <file>shape_snippets.qml</file>
+    </qresource>
+</RCC>
